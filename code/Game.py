@@ -1,24 +1,30 @@
     #!/usr/bin/python
 # -*- coding: utf-8 -*-
 import pygame
-
+from code.Const import WIN_HEIGHT, WIN_WIDTH, MENU_OPT
+from code.Level import Level
 from code.Menu import Menu
 
 
 class Game:
     def __init__(self):
         pygame.init()
-        self.window = pygame.display.set_mode(size=(700, 520))
+        self.window = pygame.display.set_mode(size=(WIN_WIDTH, WIN_HEIGHT))
+
 
     def run(self, ):
-        pass
 
         while True:
             menu = Menu(self.window)
-            menu.run()
-            pass
-            # for event in pygame.event.get():
-            #    if event.type == pygame.QUIT:
-            #        pygame.quit()
-            #        quit() #end pygame
+            menu_return = menu.run()
+
+            if menu_return == MENU_OPT[0]:
+                level = Level(self.window, 'Bg', menu_return)
+                level_return = level.run()
+            elif menu_return == MENU_OPT[1]:
+                pygame.quit()
+                quit()
+            else:
+                pass
+
 
