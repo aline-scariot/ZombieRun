@@ -25,9 +25,6 @@ class EntityFactory:
                 return list_obstacle
 
 
-            #case 'Obstacle':
-            #   return Obstacle(f'Obstacle1', (290, 275))
-            #case 'Obstacle':
-            #   return Obstacle(f'Obstacle2', (300, 275))
+
 
 

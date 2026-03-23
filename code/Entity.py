@@ -3,7 +3,8 @@
 import os
 import pygame.image
 from abc import ABC, abstractmethod
-from code.Const import WIN_HEIGHT
+
+from code.Const import ENT_HEALTH, ENT_DAMAGE
 
 
 class Entity(ABC):
@@ -12,7 +13,9 @@ class Entity(ABC):
         self.surf = pygame.image.load(os.path.join( './asset/' + name + '.png')).convert_alpha()
         self.rect = self.surf.get_rect(bottomleft=(0, 275))
         self.speed = 0
-
+        self.health = ENT_HEALTH[self.name]
+        self.damage = ENT_DAMAGE[self.name]
+        self.last_dmg = 'None'
     @abstractmethod
     def move(self):
         pass
